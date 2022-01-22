@@ -1,0 +1,16 @@
+# This is Git's per-user configuration file.
+[user]
+	name = Ty Kozic
+	email = tykozic@posteo.net
+[core]
+	editor = nvim
+[init]
+	defaultBranch = main
+[pull]
+	rebase = false
+[sendemail]
+	smtpserver = posteo.de
+	smtpserverport = 465
+	smtpencryption = ssl
+	smtpuser = tykozic@posteo.net
+	suppresscc = self

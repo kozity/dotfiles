@@ -1,0 +1,8 @@
+discord_arch_electron
+multimc5
+slack-desktop
+spotify
+teams
+ttf-ms-fonts
+ttf-scientifica
+zoom

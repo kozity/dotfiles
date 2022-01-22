@@ -1,0 +1,9 @@
+#!/usr/bin/sh
+
+printf 'WARNING: mild flashing lights and rapidly changing colors. Ctrl-C can be used to terminate the program. Continue? [y/N] ' >&2
+read choice
+if [ "$choice" = y ]; then
+	curl parrot.live
+else
+	echo 'Cancelled.' >&2
+fi

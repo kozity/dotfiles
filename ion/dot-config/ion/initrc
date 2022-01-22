@@ -1,0 +1,7 @@
+fn PROMPT
+	starship prompt
+end
+
+keybindings vi
+
+source ~/.config/shell_aliases.sh

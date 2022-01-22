@@ -1,0 +1,35 @@
+#!/usr/bin/sh
+
+case "$1" in
+	'')
+		;;
+	above)
+		flag='--above'
+		;;
+	below)
+		flag='--below'
+		;;
+	dup)
+		xrandr --output DP1 --mode 1920x1080 --same-as eDP1
+		exit
+		;;
+	left)
+		flag='--left-of'
+		;;
+	off)
+		xrandr --auto
+		exit
+		;;
+	replace)
+		echo 'not yet implemented'
+		exit
+		;;
+	right)
+		flag='--right-of'
+		;;
+	*)
+		echo 'error: unrecognized subcommand' >&2
+		;;
+esac
+
+xrandr --output DP1 --auto $flag eDP1

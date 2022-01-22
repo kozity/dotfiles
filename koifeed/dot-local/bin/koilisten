@@ -1,0 +1,3 @@
+#!/usr/bin/sh
+# choose no video track; a graphical environment is no longer required
+mpv --vid=no `koi link $@`

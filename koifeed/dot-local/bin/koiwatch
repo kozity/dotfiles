@@ -1,0 +1,8 @@
+#!/usr/bin/sh
+
+if [ "$1" = '-l' ]; then
+	shift 1
+	echo "$@" | xargs -n 2 'koiwatch'
+else
+	mpv `koi link $@`
+fi

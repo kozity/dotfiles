@@ -1,0 +1,9 @@
+#!/usr/bin/sh
+if [ -z "$DISPLAY" ]; then
+	browser=bombadillo
+elif [ -z "$BROWSER" ]; then
+	browser=firefox
+else
+	browser="$BROWSER"
+fi
+$browser `koi link $@`

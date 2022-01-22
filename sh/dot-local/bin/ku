@@ -1,0 +1,56 @@
+#!/usr/bin/sh
+
+git_journal () {
+	git --git-dir="$(journal dir)/.git" --work-tree="$(journal dir)" $@
+}
+
+git_storage () {
+	git --git-dir="$HOME/storage" --work-tree="$HOME" $@
+}
+
+git_suckless () {
+	git --git-dir='/usr/local/src/suckless/.git' --work-tree='/usr/local/src/suckless' $@
+}
+
+case "$1" in
+	'')
+		echo '------ journal'
+		git_journal status
+		printf '\n------ storage\n'
+		git_storage status
+		printf '\n------ suckless\n'
+		git_suckless status
+		printf '\n------ pass\n'
+		pass git status
+		;;
+	dav)
+		vdirsyncer sync
+		;;
+	journal)
+		temp="$(git_journal status)"
+		echo "$temp"
+		if [ -n "$(echo "$temp" | grep ahead)" ]; then
+			printf '\npush commits? [y/N] '
+			read choice
+			if [ "$choice" = y ]; then
+				echo
+				git_journal push
+			fi
+		fi
+		;;
+	storage)
+		temp="$(git_storage status)"
+		echo "$temp"
+		if [ -n "$(echo "$temp" | grep ahead)" ]; then
+			printf '\npush commits? [y/N] '
+			read choice
+			if [ "$choice" = y ]; then
+				echo
+				git_storage push
+			fi
+		fi
+		;;
+	*)
+		echo 'error: unrecognized subcommand' >&2
+		;;
+esac

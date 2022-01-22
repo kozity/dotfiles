@@ -1,0 +1,12 @@
+#!/usr/bin/sh
+
+editor="$EDITOR"
+if [ -z "$editor" ]; then
+	editor=nvim
+fi
+
+files="$(find ~ -name '*.txt' -o -name '*.md' | grep --invert-match '/\.' | fzf --multi)"
+
+if [ -n "$files" ]; then
+	exec $editor $files
+fi

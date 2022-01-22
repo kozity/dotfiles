@@ -1,0 +1,19 @@
+add_newline = false
+format      = '[\[](bold cyan)$username $directory[\]](bold cyan) ([\(](bold purple)$git_branch( $git_status)[\)](bold purple) )\$ '
+
+[directory]
+format            = '[$path](bold cyan)'
+truncate_to_repo  = false
+truncation_length = 99
+truncation_symbol = "../"
+
+[git_branch]
+format = '[$branch]($style)'
+
+[git_status]
+format  = '[$all_status]($style)'
+renamed = '>'
+
+[username]
+format      = '[$user](bold cyan)'
+show_always = true

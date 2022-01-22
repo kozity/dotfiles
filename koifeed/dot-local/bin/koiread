@@ -1,0 +1,7 @@
+#!/usr/bin/sh
+
+# restrict to half of minerva's screen
+#koi content $1 $2 | w3m -T text/html -cols 73 -dump | less
+
+# no width restriction
+koi content $1 $2 | w3m -T text/html -dump | less

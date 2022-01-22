@@ -1,0 +1,22 @@
+#!/usr/bin/sh
+
+journal_dir="$HOME/journal"
+
+case $1 in
+	'd' | 'dir' | 'directory')
+		echo "$journal_dir"
+		;;
+	's' | 'search' | 'grep')
+		if [ -n "$2" ]; then
+			grep --files-with-matches "$2" "$journal_dir"/*
+		else
+			echo 'error: empty pattern' >&2
+		fi
+		;;
+	't' | 'today')
+		$EDITOR "${journal_dir}/$(date +%F).md"
+		;;
+	*)
+		echo 'error: argument unrecognized' >&2
+		;;
+esac

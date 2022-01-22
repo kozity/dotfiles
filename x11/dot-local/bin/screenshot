@@ -1,0 +1,6 @@
+#!/usr/bin/sh
+
+path="/home/ty/Pictures/screenshot.png"
+
+imlib2_grab "$path"
+cp "$path" "$(echo "$path" | dmenu -p "Save as:")"

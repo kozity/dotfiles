@@ -1,0 +1,8 @@
+#!/usr/bin/sh
+# fuzzy find file and launch zathura
+
+file="$(st -o - sh -c "find ~ -name '*.pdf' | fzf" | sed 's/.*1000l// ; s/\r//')"
+
+if [ -n "$file" ]; then
+	zathura "$file"
+fi

@@ -1,0 +1,77 @@
+# apply colors
+if [ "$TERM" = "linux" ]; then
+	# custom
+	#printf %b \
+	#	'\e]P0000000' \
+	#	'\e]P1cd5c5c' \
+	#	'\e]P22e8b57' \
+	#	'\e]P3bdb76b' \
+	#	'\e]P45f9ea0' \
+	#	'\e]P57b68ee' \
+	#	'\e]P6008b8b' \
+	#	'\e]P7dcdcdc' \
+	#	'\e]P81a2b2b' \
+	#	'\e]P9f08080' \
+	#	'\e]PA7fffd4' \
+	#	'\e]PBeee8aa' \
+	#	'\e]PCb0e0e6' \
+	#	'\e]PDd8bfd8' \
+	#	'\e]PE7fffd4' \
+	#	'\e]PFffffff'
+
+	# nord simplified
+	printf %b \
+		'\e]P0000000' \
+		'\e]P1bf616a' \
+		'\e]P2a3be8c' \
+		'\e]P3ebc88b' \
+		'\e]P481a1c1' \
+		'\e]P5b48ead' \
+		'\e]P68fbcbb' \
+		'\e]P7d8dee9' \
+		'\e]P8000000' \
+		'\e]P9bf616a' \
+		'\e]Paa3be8c' \
+		'\e]Pbebc88b' \
+		'\e]Pc81a1c1' \
+		'\e]Pdb48ead' \
+		'\e]Pe8fbcbb' \
+		'\e]Pfd8dee9'
+fi
+
+# environment variables
+
+PS1=" [$USER $PWD] $ "
+export PS1
+
+BROWSER='firefox'
+export BROWSER
+
+EDITOR='nvim'
+export EDITOR
+
+PAGER='less'
+export PAGER
+
+LESS="${LESS} --mouse -R"
+export LESS
+
+ENV="$HOME/.config/shell_aliases.sh"
+export ENV
+
+if [ -z "$(echo "$PATH" | grep "$HOME/.cargo/bin")" ]; then
+	PATH="$PATH:$HOME/.cargo/bin"
+fi
+if [ -z "$(echo "$PATH" | grep "$HOME/.local/bin")" ]; then
+	PATH="$PATH:$HOME/.local/bin"
+fi
+export PATH
+
+# shell-specific
+if [ -n "$(echo "$0" | grep bash)" ]; then
+	source "$HOME/.bashrc"
+fi
+
+if [ "$(tty)" = '/dev/tty1' ]; then
+	startx
+fi

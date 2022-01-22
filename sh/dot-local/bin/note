@@ -1,0 +1,11 @@
+#!/usr/bin/sh
+
+parent_dir='/home/ty/umn/'
+course="$(ls "$parent_dir" | nl | fzf | cut --fields=2)"
+
+printf 'type: '
+read type
+
+filename="$(date --iso-8601)_${type}.md"
+
+$EDITOR "${parent_dir}/${course}/notes/${filename}"

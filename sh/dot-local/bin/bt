@@ -1,0 +1,33 @@
+#!/usr/bin/sh
+
+case "$1" in
+	'on')
+		systemctl start bluetooth.service \
+			&& exec bluetoothctl power on
+		;;
+	'off')
+		bluetoothctl power off \
+			&& exec systemctl stop bluetooth.service
+		;;
+	'c' | 'con' | 'connect')
+		echo 'flip4'
+		printf 'select device: '
+		read device
+		case "$device" in
+			# add devices here
+			*)
+				exec echo "fatal error: device \"$device\" unrecognized."
+				;;
+		esac
+		;;
+	'' | 'help' | '-h' | '--help')
+		printf 'subcommands:\n'
+		printf '\tcon:\tinteractively connect to a known device.\n'
+		printf '\t    \t`bt on` should be run first.\n'
+		printf '\toff:\tdisables bluetooth.\n'
+		printf '\ton:\tenables bluetooth with default agent.\n'
+		;;
+	*)
+		exec echo "fatal error: subcommand \"$1\" unrecognized."
+		;;
+esac

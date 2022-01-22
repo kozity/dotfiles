@@ -1,0 +1,48 @@
+#!/usr/bin/sh
+
+case $1 in
+	"vu") # volume up
+		exec amixer set --quiet 'Master' 5%+
+		;;
+	"vd") # volume down
+		exec amixer set --quiet 'Master' 5%-
+		;;
+	"vm") # volume toggle mute
+		exec amixer set --quiet 'Master' toggle
+		;;
+	"bd") # brightness down
+		exec light -U 1
+		;;
+	"br") # brightness absolute
+		if [ -z "$2" ]; then
+			exec light
+		else
+			exec light -S "$2"
+		fi
+		;;
+	"bu") # brightness up
+		exec light -A 1
+		;;
+	"mp") # media previous
+		exec playerctl previous
+		;;
+	"mt") # media toggle (play/pause)
+		#playerctl play-pause
+		if [ "$(playerctl status)" = Paused ]; then
+			exec playerctl play
+		else
+			exec playerctl pause
+		fi
+		;;
+	"mn") # media next
+		exec playerctl next
+		;;
+	*)
+		exec echo "usage: $0 (vu | vd | vm | br | mp | mt | mn)"
+		;;
+esac
+
+# uncomment and ensure runs properly if polybar is not used
+#if [ -n "$DISPLAY" ]; then
+#	xsetroot -name "$(status)"
+#fi

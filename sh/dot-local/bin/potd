@@ -1,0 +1,13 @@
+#!/usr/bin/sh
+# POTD: Poem of the Day (from the Poetry Foundation)
+link="$(curl --silent https://www.poetryfoundation.org/poems/poem-of-the-day | grep Read\ More | cut --delimiter=\" --fields=2)"
+
+page="$(curl --silent "$link")"
+
+heading="$(echo "$page" | grep "^\s*<title>" | sed "s/^.*<title>// ; s/ |.*$//")"
+body="$(echo "$page" | grep \<br\> | w3m -T text/html -dump)"
+
+echo "$heading"
+# underline heading
+echo "$(echo "$heading" | sed 's/./~/g')"
+echo "$body"

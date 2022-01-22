@@ -1,0 +1,20 @@
+set font "IBM Plex Sans normal 12"
+
+set default-bg "#2E3440"
+set default-fg "#4c566a"
+
+#set inputbar-bg "#2E3440"
+#set inputbar-fg "#ECEFF4"
+
+#set completion-bg "#3B4252"
+#set completion-fg "#88C0D0"
+#set completion-group-bg "#D8DEE9"
+#set completion-group-fg "#2E3440"
+#set completion-highlight-bg "#A3BE8C"
+#set completion-highlight-fg "#2E3440"
+
+#set statusbar-bg "#D8DEE9"
+#set statusbar-fg "#2E3440"
+
+# disables status bar
+set guioptions ""

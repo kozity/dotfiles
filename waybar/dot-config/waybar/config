@@ -1,0 +1,23 @@
+{
+	"layer": "bottom",
+	"modules-left": [],
+	"modules-right": ["pulseaudio", "backlight", "network", "battery", "clock"],
+	"position": "bottom",
+	"backlight": {
+		"format": "💡 {percent}%"
+	},
+	"battery": {
+		"format": "🔋 {capacity}%"
+	},
+	"clock": {
+		"format": "📅 {:%F %R}"
+	},
+	"network": {
+		"format": "📶 {essid}",
+		"format-disconnected": "❎"
+	},
+	"pulseaudio": {
+		"format": "🔊 {volume}%",
+		"format-muted": "🔇 {volume}%"
+	}
+}

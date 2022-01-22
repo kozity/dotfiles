@@ -1,0 +1,24 @@
+* {
+    border: none;
+    border-radius: 0;
+    font-family: Unifont, Unifont Upper, monospace;
+    font-size: 16px;
+    min-height: 18px;
+	background-color: #2e3440;
+    color: #e5e9f0;
+}
+
+#clock,
+#battery,
+#backlight,
+#network,
+#pulseaudio {
+    padding: 0 10px;
+    margin: 0 4px;
+}
+
+#window {
+    margin: 0 4px;
+}
+
+/* NOTE: default style on GitHub has good workspace module margin logic */

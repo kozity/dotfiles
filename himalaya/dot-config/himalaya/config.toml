@@ -1,0 +1,17 @@
+name = "Ty Kozic"
+downloads-dir = "/home/ty/mail"
+signature = ""
+
+[posteo]
+default = true
+email = "tykozic@posteo.net"
+
+imap-host = "posteo.de"
+imap-port = 993
+imap-login = "tykozic@posteo.net"
+imap-passwd-cmd = "pass posteo"
+
+smtp-host = "posteo.de"
+smtp-port = 465
+smtp-login = "tykozic@posteo.net"
+smtp-passwd-cmd = "pass posteo"

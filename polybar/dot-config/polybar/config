@@ -1,0 +1,180 @@
+;   To learn more about how to configure Polybar
+;   go to https://github.com/jaagr/polybar
+
+[colors]
+	nord0       = #2e3440
+	nord1       = #3b4252
+	nord3       = #4c566a
+	nord4       = #d8dee9
+	nord5       = #e5e9f0
+	nord6       = #eceff4
+	nord7       = #8fbcbb
+	nord8       = #88c0d0
+	nord9       = #81a1c1
+	nord10      = #5e81ac
+	nord_red    = #bf616a
+	nord_orange = #d08770
+	nord_yellow = #ebcb8b
+	nord_green  = #a3be8c
+	nord_purple = #b48ead
+	background  = ${self.nord0}
+	foreground  = ${self.nord9}
+	primary     = ${self.nord6}
+	secondary   = ${self.nord3}
+	alert       = ${self.nord_orange}
+
+[bar/primary]
+	bottom              = true
+	width               = ${env:width}
+	offset-x            = ${env:offsetx}
+	monitor             = ${env:monitor}
+	height              = 26
+	fixed-center        = false
+	background          = ${colors.background}
+	foreground          = ${colors.foreground}
+;	under-/overline size
+	line-size           = 0
+	line-color          = #e5e9f0
+	border-bottom-size  = 0
+	border-top-size     = 0
+	border-color        = ${colors.nord1}
+;	radius-top          = 8
+	padding-left        = 0
+	padding-right       = 1
+	module-margin-left  = 2
+	module-margin-right = 1
+;	font-0              = "Unifont:size=12:antialias=false;0"
+	font-0              = "scientifica:size=16:antialias=false;4"
+	font-1              = "Unifont Upper:size=12:antialias=false;4"
+	modules-left        = dwm
+	modules-center      = 
+	modules-right       = event xbacklight pulseaudio wlan battery date 
+	tray-position       = none
+	cursor-click        = pointer
+	cursor-scroll       = ns-resize
+;	override-redirect   = true
+
+[module/backlight-acpi]
+	inherit = module/xbacklight
+	type    = internal/backlight
+	card    = intel_backlight
+
+[module/battery]
+	type                          = internal/battery
+	battery                       = BAT0
+	adapter                       = AC
+	full-at                       = 98
+	format-charging               = 🔋 <label-charging>
+	format-charging-foreground    = ${colors.nord_yellow}
+	format-discharging            = 🔋 <label-discharging>
+	format-discharging-foreground = ${colors.nord_purple}
+	format-full                   = 🔋 <label-full>
+	format-full-foreground        = ${colors.nord_green}
+
+[module/date]
+	type            = internal/date
+	date            = %Y-%m-%d
+	time            = %H:%M
+	interval        = 60
+	label           = 📅 %date% %time%
+
+[module/dwm]
+type = internal/dwm
+format = <label-tags> <label-layout> <label-floating> <label-title>
+; below works out of box (/tmp/dwm.sock is default).
+; socket-path = /tmp/dwm.sock
+enable-tags-click = true
+enable-tags-scroll = false
+; see polybar-dwm-module github
+enable-layout-click = false
+enable-layout-scroll = false
+
+; title of currently focused window.
+label-title = %title%
+label-title-padding = 2
+label-title-foreground = ${colors.foreground}
+label-title-maxlen = 30
+label-title-default = ""
+
+label-layout = %symbol%
+label-layout-padding = 2
+label-layout-foreground = ${colors.foreground}
+
+label-floating = ::<f32>
+
+label-focused = [%name%]
+label-focused-foreground = ${colors.nord8}
+label-focused-padding = 1
+
+label-unfocused = " %name% "
+label-unfocused-padding = 1
+
+label-visible = " %name% "
+label-visible-foreground = ${color.nord8}
+label-visible-padding = 1
+
+label-urgent = " %name%!"
+label-urgent-foreground = ${colors.alert}
+label-urgent-padding = 1
+
+label-empty = " %name% "
+label-empty-foreground = ${colors.nord3}
+label-empty-padding = 1
+
+[module/event]
+	type = custom/script
+	exec = "khal list now 7d 2>/dev/null | sed --quiet '1 s/.* [0-9]*-// ; 1 s/$/: /p ; 2p' | paste --delimiter='' - -"
+	tail = false
+	interval = 120
+
+[module/ewmh]
+	type                      = internal/xworkspaces
+	label-active              = " %icon% %name%  "
+	label-active-foreground   = ${colors.nord8}
+	label-occupied            = " %icon% %name%  "
+	label-occupied-foreground = ${colors.nord3}
+	label-urgent              = " %icon% %name%  "
+	label-urgent-foreground   = ${colors.nord_orange}
+	label-empty               = " %icon% %name%  "
+	label-empty-foreground    = ${colors.nord3}
+
+[module/padding]
+	type               = custom/text
+	content            = ||
+	content-foreground = #00000000
+	content-background = #00000000
+
+[module/pulseaudio]
+	type                     = internal/pulseaudio
+	label-volume             = 🔊 %percentage%%
+	label-volume-foreground  = ${colors.nord8}
+	label-muted              = 🔇 %percentage%%
+	label-muted-foreground   = ${colors.nord_purple}
+
+[module/wlan]
+	type                          = internal/network
+	interface                     = wlan0
+	interval                      = 60
+	format-connected              = 📶 <label-connected>
+	format-connected-foreground    = ${colors.nord_green}
+	label-connected               = %essid%
+	format-disconnected           = <label-disconnected>
+	label-disconnected            = ❎
+	label-disconnected-foreground = ${colors.nord_red}
+
+[module/xbacklight]
+	type            = internal/xbacklight
+	label           = 💡 %percentage%%
+	label-foreground = ${colors.nord_yellow}
+
+[settings]
+	screenchange-reload    = true
+;	compositing-background = xor
+;	compositing-background = screen
+;	compositing-foreground = source
+;	compositing-border     = over
+	pseudo-transparency    = true
+
+[global/wm]
+	margin-top    = 0
+	margin-bottom = 8
