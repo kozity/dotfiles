@@ -5,7 +5,7 @@ git_journal () {
 }
 
 git_storage () {
-	git --git-dir="$HOME/storage" --work-tree="$HOME" $@
+	git --git-dir="$HOME/stow/.git/" --work-tree="$HOME/stow/" $@
 }
 
 git_suckless () {
