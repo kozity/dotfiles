@@ -1,7 +1,11 @@
+cava
 discord_arch_electron
+mpv-mpris
 multimc5
+ncspot
+polybar-dwm-module
 slack-desktop
-spotify
+stow-dotfiles-git
 teams
 ttf-ms-fonts
 ttf-scientifica
