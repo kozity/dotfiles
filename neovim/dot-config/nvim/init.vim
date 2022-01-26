@@ -26,6 +26,9 @@ nnoremap <A-j> <C-w>j
 nnoremap <A-k> <C-w>k
 nnoremap <A-l> <C-w>l
 
+command Pdf !pandoc % -t pdf | zathura - &
+nnoremap <Leader>p :Pdf<Return>
+
 " SETTINGS
 set cursorline
 set foldmethod=expr
@@ -39,8 +42,6 @@ set nofoldenable
 set nomodeline
 set number
 set path+=**,
-" messes with ! command invocation
-"set shell=/home/ty/.cargo/bin/nu
 set showmatch
 set textwidth=0
 " indentation
