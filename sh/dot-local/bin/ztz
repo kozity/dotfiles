@@ -2,10 +2,12 @@
 
 editor="$EDITOR"
 if [ -z "$editor" ]; then
-	editor=nvim
+	editor='nvim'
 fi
 
-files="$(find ~ -name '*.txt' -o -name '*.md' | grep --invert-match '/\.' | fzf --multi)"
+files="$( find ~ -name '*.txt' -o -name '*.md' -o -name '*.tex' -o -name '*.gmi' \
+	| grep --invert-match '/\.' \
+	| fzf --multi )"
 
 if [ -n "$files" ]; then
 	exec $editor $files
