@@ -41,7 +41,9 @@ fi
 
 # environment variables
 
-PS1=" [$USER $PWD] $ "
+# in case starship.rs isn't available for a particular shell.
+# "\e[36m" switches to cyan foreground.
+PS1="\e[36m[\u \w]\e[0m $ "
 export PS1
 
 BROWSER='firefox'
@@ -67,11 +69,18 @@ if [ -z "$(echo "$PATH" | grep "$HOME/.local/bin")" ]; then
 fi
 export PATH
 
+# register aliases. works with any posix-compliant shell, which should be anything I use
+alias_file="$HOME/.config/shell_aliases.sh"
+if [ -f "$alias_file" ]; then
+	source "$alias_file"
+fi
+
 # shell-specific
 if [ -n "$(echo "$0" | grep bash)" ]; then
 	source "$HOME/.bashrc"
 fi
 
+# start an X session if on first tty.
 if [ "$(tty)" = '/dev/tty1' ]; then
 	startx
 fi
