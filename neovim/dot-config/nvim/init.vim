@@ -2,6 +2,7 @@
 let mapleader=","
 nnoremap <Leader>a <C-^>
 nnoremap <Leader>b i─│┌┐└┘<C-[>
+nnoremap <Leader>c :cd %:p:h<Return>:pwd<Return>
 nnoremap <Leader>m :make<Return>
 nnoremap <Leader>n :nohlsearch<Return>
 nnoremap <Leader>s :!status<Return>
