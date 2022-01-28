@@ -1,5 +1,5 @@
 alias colortest='msgcat --color=test'
-alias ll='ls -lA --si --time-style=long-iso --color=auto'
+alias ll='ls -lAh --color=auto'
 alias ki='khal interactive'
 alias kl='khal list today 7d'
 alias kn='khal list now 2>/dev/null | sed --quiet 2p'
