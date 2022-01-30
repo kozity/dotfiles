@@ -49,14 +49,17 @@ call s:hi("Bold", "", "", s:bold)
 call s:hi("Italic", "", "", s:italic)
 call s:hi("Underline", "", "", s:underline)
 
+"+--- added by Ty ---+
+call s:hi("Whitespace",	s:br_black, "NONE", "")
+
 "+--- Editor ---+
 call s:hi("ColorColumn",	"NONE",	s:br_black,	"")
 call s:hi("Cursor",	"",	"NONE",	"")
-call s:hi("CursorLine",	"NONE",	s:br_black,	"none")
-call s:hi("CursorLineNr",	s:br_yellow,	"",	"Bold")
+call s:hi("CursorLine",	"NONE",	"NONE",	"none")
+call s:hi("CursorLineNr", s:br_yellow, "NONE", "Bold")
 call s:hi("Error",	"",	s:red,	"")
 call s:hi("iCursor",	"",	"NONE",	"")
-call s:hi("LineNr",	s:blue,	"NONE",	"")
+call s:hi("LineNr",	s:cyan,	"NONE",	"")
 call s:hi("MatchParen",	s:black,	s:br_blue,	"")
 call s:hi("NonText",	s:br_black,	"",	"")
 call s:hi("Normal",	"NONE",	"NONE",	"")
@@ -112,14 +115,14 @@ call s:hi("ErrorMsg", s:black, s:red, "")
 call s:hi("ModeMsg", "", "", "")
 call s:hi("MoreMsg", s:br_blue, "", "")
 call s:hi("Question", s:br_magenta, "", "")
-call s:hi("StatusLine", s:black, s:blue, s:bold)
+call s:hi("StatusLine", s:black, s:cyan, s:bold)
 call s:hi("StatusLineNC", s:blue, s:br_black, "NONE")
 call s:hi("WarningMsg", s:black,	s:yellow, "")
 call s:hi("WildMenu", s:br_blue, s:br_black, "")
 
 "+--- Search ---+
-call s:hi("IncSearch", s:black, s:br_cyan, s:bold)
-call s:hi("Search", s:br_white, s:cyan, "NONE")
+call s:hi("IncSearch", s:white, s:br_black, s:bold)
+call s:hi("Search", s:black, s:yellow, "NONE")
 
 "+--- Tabs ---+
 call s:hi("TabLine", "NONE", s:br_black, "NONE")

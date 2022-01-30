@@ -37,6 +37,7 @@ set hidden
 set inccommand=nosplit
 set lazyredraw
 set linebreak
+set list " show certain whitespace characters
 set mouse=nv
 set noexpandtab
 set nofoldenable
@@ -71,16 +72,22 @@ colorscheme custom
 let g:netrw_liststyle = 3
 let g:netrw_banner = 0
 
-" lightline
-"set noshowmode
-"let g:lightline = {
-"  \ 'colorscheme': 'nord',
-"  \ 'active': {
-"  \   'left': [ [ 'mode', 'paste' ],
-"  \             [ 'readonly', 'absolutepath', 'modified' ] ],
-"  \   'right': [ [ 'lineinfo' ] ]
-"  \ },
-"  \ 'component': {
-"  \   'lineinfo': "%{col('.') . ':' . line('.') . '/' . line('$')}%<",
-"  \ },
-"  \ }
+" focus mode
+let s:focused = 0
+function! ToggleFocus()
+	if s:focused == 0
+		let s:focused = 1
+		set laststatus=0
+		set nolist
+		set nonumber
+		set noruler
+		set noshowcmd
+	else
+		let s:focused = 0
+		set laststatus=2
+		set list
+		set number
+		set showcmd
+	endif
+endfunction
+nnoremap <C-f> :call ToggleFocus()<Return>
