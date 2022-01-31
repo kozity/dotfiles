@@ -10,5 +10,6 @@ files="$( find ~ -name '*.txt' -o -name '*.md' -o -name '*.tex' -o -name '*.gmi'
 	| fzf --multi )"
 
 if [ -n "$files" ]; then
+	printf "editing:\n$files\n" >&2
 	exec $editor $files
 fi
