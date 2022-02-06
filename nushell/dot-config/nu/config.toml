@@ -1,0 +1,55 @@
+path = ["/usr/local/sbin", "/usr/local/bin", "/usr/bin", "/usr/lib/jvm/default/bin", "/usr/bin/site_perl", "/usr/bin/vendor_perl", "/usr/bin/core_perl", "/home/ty/.cargo/bin", "/home/ty/.local/bin", "/usr/lib/jvm/default/bin"]
+rm_always_trash = false
+skip_welcome_message = true
+startup = [
+	"alias bat = bat --theme=Nord",
+	"alias colortest = msgcat --color=test",
+	"alias ll = ls -a",
+	"alias ki = khal interactive",
+	"alias kl = khal list today 7d",
+	"alias move = mv -i",
+	"alias remind = remind ~/cal.rem",
+	"alias ta = tmux new-session -As primary",
+	"alias tmux = tmux -2",
+	"alias touchtype = xinput set-prop 11 'libinput Disable While Typing Enabled' 0",
+	"alias notouchtype = xinput set-prop 11 'libinput Disable While Typing Enabled' 1",
+	"alias zoomcomp = xcompmgr -c -l0 -t0 -r0 -o.00",
+
+	# CONSOLE WORK
+	"alias bd = functions bd",
+	"alias br = functions br",
+	"alias bu = functions bu",
+	"alias mn = functions mn",
+	"alias mp = functions mp",
+	"alias mt = functions mt",
+	"alias vd = functions vd",
+	"alias vm = functions vm",
+	"alias vu = functions vu",
+
+	# nu-specific
+	"alias type = which",
+
+	# custom commands
+	"def news [] { koi list -lt news }",
+	"def koitoday [] { koi list | grep (^date +%y-%m-%d) }",
+	"def koiup [] { koi update ; koitoday }",
+]
+
+[env]
+BROWSER = "firefox"
+EDITOR = "nvim"
+ENV = "/home/ty/.config/shell_aliases.sh"
+GTK_MODULES = "canberra-gtk-module"
+HOME = "/home/ty"
+LANG = "en_US.UTF-8"
+LESS = " --mouse -R"
+LOGNAME = "ty"
+PAGER = "less"
+PROMPT_COMMAND = "starship prompt"
+PS1 = "\\e[36m[\\u \\w]\\e[0m $ "
+USER = "ty"
+
+[line_editor]
+edit_mode = "vi"
+history_duplicates = "ignoreconsecutive"
+history_ignore_space = true
