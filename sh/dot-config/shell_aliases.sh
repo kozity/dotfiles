@@ -1,3 +1,4 @@
+alias bat='bat --theme=Nord'
 alias colortest='msgcat --color=test'
 alias ll='ls -lAh --color=auto'
 alias ki='khal interactive'
