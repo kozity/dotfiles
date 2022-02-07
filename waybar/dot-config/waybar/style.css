@@ -1,20 +1,85 @@
 * {
     border: none;
     border-radius: 0;
-    font-family: Unifont, Unifont Upper, monospace;
-    font-size: 16px;
-    min-height: 18px;
-	background-color: #2e3440;
-    color: #e5e9f0;
+    font-family: scientifica, Unifont Upper, monospace;
+    font-size: 21.5px;
+    min-height: 26px;
+}
+
+#waybar {
+	background: #2e3440;
 }
 
 #clock,
+#custom-event,
 #battery,
 #backlight,
 #network,
 #pulseaudio {
     padding: 0 10px;
     margin: 0 4px;
+}
+
+#clock {
+	color: #8fbcbb;
+}
+
+#custom-event {
+	color: #5e81ac;
+}
+
+#battery {
+	color: #b48ead;
+}
+
+#battery.full {
+	color: #a3be8c;
+}
+
+#battery.charging {
+	color: #88c0d0;
+}
+
+#backlight {
+	color: #ebcb8b;
+}
+
+#network {
+	color: #a3be8c;
+}
+
+#network.disconnected {
+	color: #bf616a;
+}
+
+#pulseaudio {
+	color: #81a1c1;
+}
+
+#pulseaudio.muted {
+	color: #b48ead;
+}
+
+#tags {
+	background: transparent;
+}
+
+#tags button {
+	color: #4c566a;
+}
+
+#tags button.occupied {
+	color: #8fbcbb;
+}
+
+#tags button.focused {
+	background: #8fbcbb;
+	color: #2e3440;
+}
+
+#tags button.urgent {
+	background: #d08770;
+	color: #2e3440;
 }
 
 #window {

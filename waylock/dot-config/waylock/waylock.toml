@@ -1,0 +1,14 @@
+# waylock.toml
+
+# Note: all fields are optional. If omitted a default value will be used.
+
+# If set to true, never revert the color after input or failure.
+one_way = false
+
+# Command to run on authentication failure. Executed with `sh -c <COMMAND>`.
+fail_command = "echo $(date --iso-8601=minute) failed unlock attempt. > ~/failed_unlocks.txt"
+
+[colors]
+init_color = 0x2e3440
+input_color = 0x5e81ac
+fail_color = 0xbf616a

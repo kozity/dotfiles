@@ -1,0 +1,13 @@
+#!/usr/bin/sh
+
+if [ -z "$WAYLAND_DISPLAY" ]; then
+	terminal='st'
+else
+	terminal='foot'
+fi
+
+if [ -z "$(tmux list-sessions | grep '^primary.*(attached)$')" ]; then
+	exec $terminal tmux new-session -As primary
+else
+	exec $terminal
+fi

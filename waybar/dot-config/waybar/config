@@ -1,23 +1,33 @@
 {
 	"layer": "bottom",
-	"modules-left": [],
-	"modules-right": ["pulseaudio", "backlight", "network", "battery", "clock"],
+	"modules-left": ["river/tags"],
+	"modules-right": ["custom/event", "pulseaudio", "backlight", "network", "battery", "clock"],
 	"position": "bottom",
 	"backlight": {
-		"format": "💡 {percent}%"
+		"format": "brt: {percent}%"
 	},
 	"battery": {
-		"format": "🔋 {capacity}%"
+		"format": "bat: {capacity}%",
+		"format-charging": "chg: {capacity}%",
+		"format-full": "ful"
 	},
 	"clock": {
-		"format": "📅 {:%F %R}"
+		"format": "cal: {:%F %R}"
+	},
+	"custom/event": {
+		"format": "{}",
+		"exec": "khal list now 7d 2>/dev/null | head -n 2 | paste -s | sed 's/^.*, ....-// ; s/\t/: /'",
+		"interval": 1800
 	},
 	"network": {
-		"format": "📶 {essid}",
-		"format-disconnected": "❎"
+		"format": "con: {essid}",
+		"format-disconnected": "dis"
 	},
 	"pulseaudio": {
-		"format": "🔊 {volume}%",
-		"format-muted": "🔇 {volume}%"
+		"format": "vol: {volume}%",
+		"format-muted": "mut: {volume}%"
+	},
+	"river/tags": {
+		"num-tags": 4
 	}
 }

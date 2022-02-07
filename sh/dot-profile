@@ -1,24 +1,5 @@
 # apply colors
 if [ "$TERM" = "linux" ]; then
-	# custom
-	#printf %b \
-	#	'\e]P0000000' \
-	#	'\e]P1cd5c5c' \
-	#	'\e]P22e8b57' \
-	#	'\e]P3bdb76b' \
-	#	'\e]P45f9ea0' \
-	#	'\e]P57b68ee' \
-	#	'\e]P6008b8b' \
-	#	'\e]P7dcdcdc' \
-	#	'\e]P81a2b2b' \
-	#	'\e]P9f08080' \
-	#	'\e]PA7fffd4' \
-	#	'\e]PBeee8aa' \
-	#	'\e]PCb0e0e6' \
-	#	'\e]PDd8bfd8' \
-	#	'\e]PE7fffd4' \
-	#	'\e]PFffffff'
-
 	# nord simplified
 	printf %b \
 		'\e]P0000000' \
@@ -69,6 +50,9 @@ if [ -z "$(echo "$PATH" | grep "$HOME/.local/bin")" ]; then
 fi
 export PATH
 
+BEMENU_OPTS="--tb '#2e3440' --tf '#8fbcbb' --fb '#4c566a' --ff '#eceff4' --nb '#2e3440' --nf '#d8dee9' --hb '#8fbcbb' --hf '#2e3440' --fn 'scientifica 16.5'"
+export BEMENU_OPTS
+
 # register aliases. works with any posix-compliant shell, which should be anything I use
 alias_file="$HOME/.config/shell_aliases.sh"
 if [ -f "$alias_file" ]; then
@@ -78,9 +62,4 @@ fi
 # shell-specific
 if [ -n "$(echo "$0" | grep bash)" ]; then
 	source "$HOME/.bashrc"
-fi
-
-# start an X session if on first tty.
-if [ "$(tty)" = '/dev/tty1' ]; then
-	startx
 fi

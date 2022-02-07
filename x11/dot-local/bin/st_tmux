@@ -1,7 +1,0 @@
-#!/usr/bin/sh
-
-if [ -z "$(tmux list-sessions | grep '^primary.*(attached)$')" ]; then
-	exec st -e tmux new-session -As primary
-else
-	exec st
-fi

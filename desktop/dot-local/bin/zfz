@@ -1,0 +1,12 @@
+#!/usr/bin/sh
+# fuzzy find file and launch zathura
+
+if [ -z "$WAYLAND_DISPLAY" ]; then
+	file="$(st -o - sh -c "find ~ -name '*.pdf' | fzf" | sed 's/.*1000l// ; s/\r//')"
+else
+	file="$(find ~ -name '*.pdf' | bemenu)"
+fi
+
+if [ -n "$file" ]; then
+	exec zathura "$file"
+fi
