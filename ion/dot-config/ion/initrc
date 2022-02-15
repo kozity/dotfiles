@@ -4,4 +4,5 @@ end
 
 keybindings vi
 
+alias clstatus='$HOME/.cargo/bin/status'
 source ~/.config/shell_aliases.sh
