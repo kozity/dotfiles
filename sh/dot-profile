@@ -1,23 +1,32 @@
 # apply colors
 if [ "$TERM" = "linux" ]; then
 	# nord simplified
+	# order:
+	#	black
+	#	red
+	#	green
+	#	yellow
+	#	blue
+	#	magenta
+	#	cyan
+	#	white
 	printf %b \
 		'\e]P0000000' \
 		'\e]P1bf616a' \
 		'\e]P2a3be8c' \
-		'\e]P3ebc88b' \
-		'\e]P481a1c1' \
+		'\e]P3ebcb8b' \
+		'\e]P45e81ac' \
 		'\e]P5b48ead' \
 		'\e]P68fbcbb' \
 		'\e]P7d8dee9' \
-		'\e]P8000000' \
+		'\e]P84c566a' \
 		'\e]P9bf616a' \
 		'\e]Paa3be8c' \
-		'\e]Pbebc88b' \
+		'\e]Pbebcb8b' \
 		'\e]Pc81a1c1' \
 		'\e]Pdb48ead' \
-		'\e]Pe8fbcbb' \
-		'\e]Pfd8dee9'
+		'\e]Pe88c0d0' \
+		'\e]Pfeceff4'
 fi
 
 # environment variables
