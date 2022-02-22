@@ -1,9 +1,13 @@
-cava
+alpine
 discord_arch_electron
+ion-git
+libfixposix
+ly
 mpv-mpris
 multimc5
-ncspot
+pandoc-bin
 polybar-dwm-module
+river
 slack-desktop
 stow-dotfiles-git
 teams
