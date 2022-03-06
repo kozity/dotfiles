@@ -9,6 +9,7 @@ riverctl map normal Super V       spawn 'foot tmux new-session -As media'
 riverctl map normal Super W       spawn firefox
 riverctl map normal Super P       spawn bemenu-run
 riverctl map normal Super+Shift L spawn waylock
+riverctl map normal Super+Shift N spawn 'dunstctl close'
 
 # close the focused view (window)
 riverctl map normal Super+Shift C close
@@ -162,4 +163,5 @@ riverctl default-layout rivertile
 
 rivertile -view-padding 8 -outer-padding 8 -main-ratio 0.5 &
 swaybg --image ~/Pictures/text_whale.png &
+dunst &
 exec waybar
