@@ -39,8 +39,10 @@ export PS1
 BROWSER='firefox'
 export BROWSER
 
-EDITOR='nvim'
+EDITOR='vis'
+GIT_EDITOR="$EDITOR"
 export EDITOR
+export GIT_EDITOR
 
 PAGER='less'
 export PAGER
