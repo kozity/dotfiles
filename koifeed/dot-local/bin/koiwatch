@@ -4,5 +4,5 @@ if [ "$1" = '-l' ]; then
 	shift 1
 	echo "$@" | xargs -n 2 'koiwatch'
 else
-	mpv `koi link $@`
+	mpv --ytdl-format=mp4 `koi link $@`
 fi
