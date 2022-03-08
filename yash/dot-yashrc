@@ -1,0 +1,13 @@
+# Firstly, load the common customization script.
+# If you don't like settings applied in this script, remove this line.
+#. --autoload --no-alias initialization/common
+
+alias source='.'
+
+YASH_PS1='\fc[$LOGNAME $PWD] \fD\$ '
+PS1=' $ '
+
+alias_file="$HOME/.config/shell_aliases.sh"
+if [ -f "$alias_file" ]; then
+	source "$alias_file"
+fi
