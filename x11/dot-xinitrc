@@ -47,8 +47,7 @@ fi
 
 # notification daemon
 dunst &
-himalaya notify &
 
-picom &
+xcompmgr -c -l0 -t0 -r0 -o.00 &
 
 exec dwm
