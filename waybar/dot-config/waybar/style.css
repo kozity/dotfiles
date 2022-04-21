@@ -1,9 +1,8 @@
 * {
     border: none;
     border-radius: 0;
-    font-family: scientifica, Unifont Upper, monospace;
+    font-family: Iosevka, Unifont Upper, monospace;
     font-size: 21.5px;
-    min-height: 26px;
 }
 
 #waybar {

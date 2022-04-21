@@ -1,0 +1,13 @@
+[general]
+default = Wikipedia
+mouse = true
+hide_references = false
+
+[Wikipedia]
+url = https://en.wikipedia.org/w/api.php
+
+[Wiktionary]
+url = https://en.wiktionary.org/w/api.php
+
+[ArchWiki]
+url = https://wiki.archlinux.org/api.php

@@ -61,5 +61,5 @@ if [ -z "$(echo "$PATH" | grep "$HOME/.local/bin")" ]; then
 fi
 export PATH
 
-BEMENU_OPTS="--tb '#2e3440' --tf '#8fbcbb' --fb '#4c566a' --ff '#eceff4' --nb '#2e3440' --nf '#d8dee9' --hb '#8fbcbb' --hf '#2e3440' --fn 'scientifica 16.5'"
+BEMENU_OPTS="--tb '#2e3440' --tf '#8fbcbb' --fb '#4c566a' --ff '#eceff4' --nb '#2e3440' --nf '#d8dee9' --hb '#8fbcbb' --hf '#2e3440' --fn 'Iosevka 16'"
 export BEMENU_OPTS

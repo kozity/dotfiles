@@ -161,7 +161,12 @@ riverctl input "$dev_touchpad" scroll-method  two-finger
 # River will send the process group of the init executable SIGTERM on exit.
 riverctl default-layout rivertile
 
+# set a compose key, i.e. PrtSc->apostrophe->e will print an e with an acute accent.
+# list usable keys with `grep "compose:" /usr/share/X11/xkb/rules/base.lst`.
+setxkbmap -option 'compose:prsc'
+
 rivertile -view-padding 8 -outer-padding 8 -main-ratio 0.5 &
-swaybg --image ~/Pictures/text_whale.png &
+#swaybg --image "$(ls -d1 ~/Pictures/wallpapers/* | shuf | head -n 1)" &
+swaybg --image ~/Pictures/wallpapers/leaves.jpg &
 dunst &
 exec waybar

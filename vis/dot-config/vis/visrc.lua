@@ -10,6 +10,12 @@ vis.events.subscribe(vis.events.WIN_OPEN, function(win)
 	-- vis:command('set number')
 	vis:command('set autoindent on')
 	vis:command('set number')
-	vis:command('set theme default-16')
+	--vis:command('set show-newlines on')
+	vis:command('set show-tabs on')
 	vis:command('set tabwidth 4')
+	vis:command('set theme custom')
 end)
+
+--[[
+vis.events.subscribe(vis.events.INPUT, function ) -- TODO
+]]

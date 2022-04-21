@@ -1,7 +1,7 @@
 {
 	"layer": "bottom",
 	"modules-left": ["river/tags"],
-	"modules-right": ["custom/event", "pulseaudio", "backlight", "network", "battery", "clock"],
+	"modules-right": ["pulseaudio", "backlight", "network", "battery", "clock"],
 	"position": "bottom",
 	"backlight": {
 		"format": "brt: {percent}%"

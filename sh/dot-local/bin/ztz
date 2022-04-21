@@ -7,7 +7,7 @@ fi
 
 files="$( find ~ -name '*.txt' -o -name '*.md' -o -name '*.tex' -o -name '*.gmi' \
 	| grep --invert-match '/\.' \
-	| fzf --multi )"
+	| fzf --multi --preview='less {}' --preview-window=border-sharp )"
 
 if [ -n "$files" ]; then
 	printf "editing:\n$files\n" >&2
