@@ -48,7 +48,7 @@
 	font-1              = "Unifont Upper:size=12:antialias=false;4"
 	modules-left        = dwm
 	modules-center      = 
-	modules-right       = event xbacklight pulseaudio wlan battery date 
+	modules-right       = xbacklight pulseaudio wlan battery date 
 	tray-position       = none
 	cursor-click        = pointer
 	cursor-scroll       = ns-resize
