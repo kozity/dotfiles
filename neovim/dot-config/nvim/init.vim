@@ -1,34 +1,15 @@
 " MAPPINGS
 let mapleader=","
-nnoremap <Leader>a <C-^>
-nnoremap <Leader>b i─│┌┐└┘<C-[>
-nnoremap <Leader>c :cd %:p:h<Return>:pwd<Return>
-nnoremap <Leader>m :make<Return>
-nnoremap <Leader>n :nohlsearch<Return>
-nnoremap <Leader>s :!status<Return>
-nnoremap <Leader>t :b term<Return>
-nnoremap <Leader>z :let &scrolloff=<C-R>=&scrolloff==0?999:0<CR><CR>
-" do not remove indentation when starting a line with '#'
-inoremap # X#
-inoremap <A-Return> <Return><C-o>^<C-o>D
-" terminal mode convenience
-"tnoremap <A-[> <C-\><C-n>
-tnoremap <C-^> <C-\><C-n><C-^>
-tnoremap <A-h> <C-\><C-n><C-w>h
-tnoremap <A-j> <C-\><C-n><C-w>j
-tnoremap <A-k> <C-\><C-n><C-w>k
-tnoremap <A-l> <C-\><C-n><C-w>l
-inoremap <A-h> <Esc><C-w>h
-inoremap <A-j> <Esc><C-w>j
-inoremap <A-k> <Esc><C-w>k
-inoremap <A-l> <Esc><C-w>l
-nnoremap <A-h> <C-w>h
-nnoremap <A-j> <C-w>j
-nnoremap <A-k> <C-w>k
-nnoremap <A-l> <C-w>l
+nnoremap <leader>a <c-^>
+nnoremap <leader>b i─│┌┐└┘<C-[>
+nnoremap <leader>c <cmd>cd %:p:h<cr>:pwd<cr>
+nnoremap <leader>m <cmd>make<cr>
+nnoremap <leader>n <cmd>nohlsearch<cr>
+nnoremap <leader>s <cmd>!status<cr>
+nnoremap <leader>z <cmd>let &scrolloff=<c-r>=&scrolloff==0?999:0<cr><cr>
 
-command Pdf !pandoc % -t pdf | zathura - &
-nnoremap <Leader>p :Pdf<Return>
+" MAPPINGS - telescope
+nnoremap <leader>/ <cmd>Telescope current_buffer_fuzzy_find<cr>
 
 " SETTINGS
 set cursorline
@@ -53,10 +34,6 @@ set smartindent
 set softtabstop=4
 set tabstop=4
 
-" COMMANDS (already defined systemwide apparently)
-"command MakeTags !ctags --recurse=yes .
-"command Make make!
-
 " STATUSLINE
 set statusline=
 set statusline+=\ %F            " add the full file path to the statusline
@@ -72,22 +49,26 @@ colorscheme custom
 let g:netrw_liststyle = 3
 let g:netrw_banner = 0
 
-" focus mode
-let s:focused = 0
-function! ToggleFocus()
-	if s:focused == 0
-		let s:focused = 1
-		set laststatus=0
-		set nolist
-		set nonumber
-		set noruler
-		set noshowcmd
-	else
-		let s:focused = 0
-		set laststatus=2
-		set list
-		set number
-		set showcmd
-	endif
-endfunction
-nnoremap <C-f> :call ToggleFocus()<Return>
+" plugins with vim-plug
+call plug#begin('~/.local/share/nvim-plugins/')
+
+Plug 'neovim/nvim-lspconfig'
+Plug 'nvim-lua/plenary.nvim'
+Plug 'nvim-telescope/telescope.nvim'
+Plug 'nvim-telescope/telescope-fzf-native.nvim', { 'do': 'make' }
+
+call plug#end()
+
+lua << EOF
+require('lspconfig').rust_analyzer.setup{
+	on_attach = function()
+		vim.keymap.set("n", "<leader>K", vim.lsp.buf.hover, {buffer = 0})
+		vim.keymap.set("n", "<leader>gd", vim.lsp.buf.definition, {buffer = 0})
+		vim.keymap.set("n", "<leader>gt", vim.lsp.buf.type_definition, {buffer = 0})
+		vim.keymap.set("n", "<leader>dj", vim.diagnostic.goto_next, {buffer = 0})
+		vim.keymap.set("n", "<leader>dk", vim.diagnostic.goto_prev, {buffer = 0})
+	end
+}
+
+require('telescope').load_extension('fzf')
+EOF
