@@ -14,8 +14,21 @@ vis.events.subscribe(vis.events.WIN_OPEN, function(win)
 	vis:command('set show-tabs on')
 	vis:command('set tabwidth 4')
 	vis:command('set theme custom')
-end)
 
---[[
-vis.events.subscribe(vis.events.INPUT, function ) -- TODO
-]]
+	lines = #(win.file.lines)
+
+	--[[ TODO
+	local custom_status = function(win)
+		local line = win.selection.line
+		local col = win.selection.col
+		local modified
+		if win.file.modified then
+			modified = " [+]"
+		else
+			modified = ""
+		end
+		win:status(vis.mode .. "|" .. win.file.path .. modified, col .. ":" .. line .. "/" .. lines)
+	end
+	vis.events.subscribe(vis.events.INPUT, custom_status)
+	]]
+end)
