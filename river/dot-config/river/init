@@ -168,5 +168,6 @@ setxkbmap -option 'compose:prsc'
 rivertile -view-padding 8 -outer-padding 8 -main-ratio 0.5 &
 #swaybg --image "$(ls -d1 ~/Pictures/wallpapers/* | shuf | head -n 1)" &
 swaybg --image ~/Pictures/wallpapers/leaves.jpg &
+kanshi &
 dunst &
 exec waybar

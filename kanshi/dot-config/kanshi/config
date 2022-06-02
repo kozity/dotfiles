@@ -1,0 +1,8 @@
+profile default {
+	output eDP-1 enable
+}
+
+profile big-monitor {
+	output eDP-1 disable
+	output DP-1 mode 2560x1080@75Hz position 1920,0 transform normal
+}
