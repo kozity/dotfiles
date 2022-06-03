@@ -5,11 +5,11 @@ if [ -z "$editor" ]; then
 	editor='nvim'
 fi
 
-files="$( find ~ -name '*.txt' -o -name '*.md' -o -name '*.tex' -o -name '*.gmi' \
+files="$( fd --base-directory ~ --absolute-path --extension txt --extension md --extension tex --extension gmi \
 	| grep --invert-match '/\.' \
 	| fzf --multi --preview='less {}' --preview-window=border-sharp )"
 
 if [ -n "$files" ]; then
 	printf "editing:\n$files\n" >&2
-	exec $editor $files
+	exec echo "$files" | xargs --delimiter '\n' $editor
 fi
