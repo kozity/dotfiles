@@ -10,23 +10,42 @@ if [ "$TERM" = "linux" ]; then
 	#	magenta
 	#	cyan
 	#	white
+	#printf %b \
+	#	'\e]P0000000' \
+	#	'\e]P1bf616a' \
+	#	'\e]P2a3be8c' \
+	#	'\e]P3ebcb8b' \
+	#	'\e]P45e81ac' \
+	#	'\e]P5b48ead' \
+	#	'\e]P68fbcbb' \
+	#	'\e]P7d8dee9' \
+	#	'\e]P84c566a' \
+	#	'\e]P9bf616a' \
+	#	'\e]Paa3be8c' \
+	#	'\e]Pbebcb8b' \
+	#	'\e]Pc81a1c1' \
+	#	'\e]Pdb48ead' \
+	#	'\e]Pe88c0d0' \
+	#	'\e]Pfeceff4'
+	
+	# everforest dark medium
 	printf %b \
-		'\e]P0000000' \
-		'\e]P1bf616a' \
-		'\e]P2a3be8c' \
-		'\e]P3ebcb8b' \
-		'\e]P45e81ac' \
-		'\e]P5b48ead' \
-		'\e]P68fbcbb' \
-		'\e]P7d8dee9' \
-		'\e]P84c566a' \
-		'\e]P9bf616a' \
-		'\e]Paa3be8c' \
-		'\e]Pbebcb8b' \
-		'\e]Pc81a1c1' \
-		'\e]Pdb48ead' \
-		'\e]Pe88c0d0' \
-		'\e]Pfeceff4'
+		'\e]P02f383e' \
+		'\e]P1e67e80' \
+		'\e]P2a7c080' \
+		'\e]P3dbbc7f' \
+		'\e]P47fbbb3' \
+		'\e]P5d699b6' \
+		'\e]P683c092' \
+		'\e]P7d3c6aa' \
+		'\e]P84b565c' \
+		'\e]P9e67e80' \
+		'\e]Paa7c080' \
+		'\e]Pbdbbc7f' \
+		'\e]Pc7fbbb3' \
+		'\e]Pdd699b6' \
+		'\e]Pe83c092' \
+		'\e]Pfd3c6aa'
 fi
 
 # environment variables
@@ -39,7 +58,7 @@ export PS1
 BROWSER='firefox'
 export BROWSER
 
-EDITOR='vis'
+EDITOR='nvim'
 GIT_EDITOR="$EDITOR"
 export EDITOR
 export GIT_EDITOR
@@ -61,5 +80,10 @@ if [ -z "$(echo "$PATH" | grep "$HOME/.local/bin")" ]; then
 fi
 export PATH
 
-BEMENU_OPTS="--tb '#2e3440' --tf '#8fbcbb' --fb '#4c566a' --ff '#eceff4' --nb '#2e3440' --nf '#d8dee9' --hb '#8fbcbb' --hf '#2e3440' --fn 'Iosevka 16'"
+# nord
+#BEMENU_OPTS="--tb '#2e3440' --tf '#8fbcbb' --fb '#4c566a' --ff '#eceff4' --nb '#2e3440' --nf '#d8dee9' --hb '#8fbcbb' --hf '#2e3440' --fn 'Iosevka 16'"
+
+# everforest
+BEMENU_OPTS="--tb '#2f383e' --tf '#83c092' --fb '#4b565c' --ff '#d3c6aa' --nb '#2f383e' --nf '#d3c6aa' --hb '#83c092' --hf '#2f383e' --fn 'Iosevka 16'"
+
 export BEMENU_OPTS
