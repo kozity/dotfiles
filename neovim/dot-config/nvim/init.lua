@@ -3,13 +3,14 @@ vim.g.mapleader = ","
 vim.keymap.set("n", "<leader>a", "<c-^>")
 vim.keymap.set("n", "<leader>b", "i─│┌┐└┘<C-[>")
 vim.keymap.set("n", "<leader>c", "<cmd>cd %:p:h<cr>:pwd<cr>")
-vim.keymap.set("n", "<leader>m", "<cmd>make<cr>")
-vim.keymap.set("n", "<leader>n", "<cmd>nohlsearch<cr>")
+vim.keymap.set("n", "<leader>m", "<cmd>make<cr>") vim.keymap.set("n", "<leader>n", "<cmd>nohlsearch<cr>")
 vim.keymap.set("n", "<leader>s", "<cmd>!status<cr>")
 vim.keymap.set("n", "<leader>z", "<cmd>let &scrolloff=<c-r>=&scrolloff==0?999:0<cr><cr>")
 
 -- mappings: telescope
 vim.keymap.set("n", "<leader>/", "<cmd>Telescope current_buffer_fuzzy_find<cr>")
+
+-- mappings: other plugins vim.keymap.set("n", "<leader>e", "<cmd>MinimapToggle<cr>")
 
 -- settings
 vim.opt.cursorline = true
@@ -45,7 +46,7 @@ vim.opt.tabstop = 4
 vim.opt.statusline = " %F %m%= %v:%l/%L "
 vim.opt.shortmess:append("F") -- don't show filename except in statusline
 
-vim.cmd("colorscheme custom")
+vim.cmd("colorscheme dim")
 
 -- netrw
 vim.g.netrw_liststyle = 3
@@ -59,6 +60,8 @@ Plug("neovim/nvim-lspconfig")
 Plug("nvim-lua/plenary.nvim")
 Plug("nvim-telescope/telescope.nvim")
 Plug("nvim-telescope/telescope-fzf-native.nvim", {["do"] = "make"})
+Plug("nvim-treesitter/nvim-treesitter", {["do"] = ":TSUpdate"})
+Plug("wfxr/minimap.vim")
 
 vim.call("plug#end")
 
@@ -69,7 +72,21 @@ require('lspconfig').rust_analyzer.setup{
 		vim.keymap.set("n", "<leader>gt", vim.lsp.buf.type_definition, {buffer = 0})
 		vim.keymap.set("n", "<leader>dj", vim.diagnostic.goto_next, {buffer = 0})
 		vim.keymap.set("n", "<leader>dk", vim.diagnostic.goto_prev, {buffer = 0})
+		vim.opt.omnifunc = "v:lua.vim.lsp.omnifunc"
 	end
 }
 
+require('telescope').setup{
+	defaults = {
+		borderchars = { "─", "│", "─", "│", "┌", "┐", "┘", "└"},
+	},
+}
+
+vim.g.minimap_highlight_range = 1
+
 require('telescope').load_extension('fzf')
+
+P = function(v)
+	print(vim.inspect(v))
+	return v
+end
