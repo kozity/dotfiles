@@ -4,7 +4,7 @@
 
 alias source='.'
 
-YASH_PS1='\fc[$LOGNAME $PWD] \fD\$ '
+YASH_PS1='\n\fc($LOGNAME $PWD)\fD\n \$ '
 PS1=' $ '
 
 alias_file="$HOME/.config/shell_aliases.sh"
