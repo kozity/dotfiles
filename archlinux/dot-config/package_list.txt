@@ -16,11 +16,13 @@ dos2unix
 dunst
 efibootmgr
 fbida
+fd
 feh
 firefox
 foot
 fuse2
 fzf
+gammastep
 gcc
 gimp
 git
@@ -30,6 +32,7 @@ himalaya
 imv
 intel-ucode
 iptables
+kanshi
 khal
 khard
 libertinus-font
@@ -65,12 +68,15 @@ poppler-data
 pulseaudio-alsa
 python-distro
 python-setuptools
-qemu
+qemu-desktop
 r
+ripgrep
+rust-analyzer
 rustup
 sile
 spotifyd
 starship
+steam
 swaybg
 tealdeer
 terminus-font
@@ -144,6 +150,7 @@ xorg-xwd
 xorg-xwininfo
 xorg-xwud
 xsel
+yajl
 yt-dlp
 yubikey-manager-qt
 zathura

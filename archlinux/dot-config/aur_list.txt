@@ -1,5 +1,5 @@
+code-minimap-bin
 discord_arch_electron
-google-chrome
 hledger-bin
 ly
 ncspot
@@ -8,12 +8,13 @@ paru-bin
 pipes.sh
 pizarra-bin
 polybar-dwm-module
-polymc
+polymc-bin
 river
 slack-desktop
 spotify-tui
 stow-dotfiles-git
 teams
 ttf-ms-fonts
+wlay-git
 yash
 zoom
