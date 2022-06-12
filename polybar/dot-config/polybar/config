@@ -64,11 +64,14 @@
 	battery                       = BAT0
 	adapter                       = AC
 	full-at                       = 98
-	format-charging               = 🔋 <label-charging>
+;	format-charging               = 🔋 <label-charging>
+	format-charging               = bat: <label-charging>
 	format-charging-foreground    = ${colors.nord_yellow}
-	format-discharging            = 🔋 <label-discharging>
+;	format-discharging            = 🔋 <label-discharging>
+	format-discharging            = bat: <label-discharging>
 	format-discharging-foreground = ${colors.nord_purple}
-	format-full                   = 🔋 <label-full>
+;	format-full                   = 🔋 <label-full>
+	format-full                   = bat: <label-full>
 	format-full-foreground        = ${colors.nord_green}
 
 [module/date]
@@ -76,7 +79,8 @@
 	date            = %Y-%m-%d
 	time            = %H:%M
 	interval        = 60
-	label           = 📅 %date% %time%
+;	label           = 📅 %date% %time%
+	label           = cal: %date% %time%
 
 [module/dwm]
 type = internal/dwm
@@ -100,9 +104,9 @@ label-layout = %symbol%
 label-layout-padding = 2
 label-layout-foreground = ${colors.foreground}
 
-label-floating = ::<f32>
+label-floating = <f>
 
-label-focused = [%name%]
+label-focused = %name%
 label-focused-foreground = ${colors.nord8}
 label-focused-padding = 1
 
@@ -146,25 +150,30 @@ label-empty-padding = 1
 
 [module/pulseaudio]
 	type                     = internal/pulseaudio
-	label-volume             = 🔊 %percentage%%
+;	label-volume             = 🔊 %percentage%%
+	label-volume             = vol: %percentage%%
 	label-volume-foreground  = ${colors.nord8}
-	label-muted              = 🔇 %percentage%%
+;	label-muted              = 🔇 %percentage%%
+	label-muted              = mut: %percentage%%
 	label-muted-foreground   = ${colors.nord_purple}
 
 [module/wlan]
 	type                          = internal/network
 	interface                     = wlan0
 	interval                      = 60
-	format-connected              = 📶 <label-connected>
+;	format-connected              = 📶 <label-connected>
+	format-connected              = con: <label-connected>
 	format-connected-foreground    = ${colors.nord_green}
 	label-connected               = %essid%
 	format-disconnected           = <label-disconnected>
-	label-disconnected            = ❎
+;	label-disconnected            = ❎
+	label-disconnected            = dis
 	label-disconnected-foreground = ${colors.nord_red}
 
 [module/xbacklight]
 	type            = internal/xbacklight
-	label           = 💡 %percentage%%
+;	label           = 💡 %percentage%%
+	label           = brt: %percentage%%
 	label-foreground = ${colors.nord_yellow}
 
 [settings]
